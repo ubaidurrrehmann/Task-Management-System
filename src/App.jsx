@@ -67,10 +67,10 @@ function App() {
         onSave={handleSaveTask}
         task={editingTask}
       />
-      {/* <NewsModal
+      {newsOpen && <NewsModal
         isOpen={newsOpen}
         onClose={handleCloseModal}
-      /> */}
+      />}
     </div>
   )
 }
