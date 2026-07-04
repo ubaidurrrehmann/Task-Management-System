@@ -10,17 +10,42 @@ const emptyForm = {
 
 export default function NewsModal({ onClose }) {
   const [isLoading, setLoading] = useState(false)
+  const [articles, setArticles] = useState([]);
+  const [error, setError] = useState(null);
 
-  // useEffect(() => {
-  
-  // }, [])
+  useEffect(() => {
+    // 1. Pull the key from Vite's env
+    const apiKey = 'pub_c1a4c7a0e1ba42baa43f4212b9a5e72d';
+    const url = `https://newsdata.io/api/1/latest?apikey=${apiKey}&language=en`; // added English filter as an example
 
-  const fetchNews = (e) => {
-    // e.preventDefault()
-    // if (!form.title.trim()) return
-    // onSave(form)
-    // onClose()
-  }
+    const fetchNews = async () => {
+      try {
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // NewsData.io returns articles inside a "results" array
+        if (data.results) {
+          setArticles(data.results);
+        } else {
+          setArticles([]);
+        }
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
+  if (isLoading) return <p>Loading latest news...</p>;
+  if (error) return <p style={{ color: 'red' }}>Error: {error}</p>;
 
 
   return (

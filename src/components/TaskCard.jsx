@@ -38,7 +38,7 @@ export default function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
           onChange={(e) => onStatusChange(task.id, e.target.value)}
           aria-label="Change task status"
         >
-          <option value="todo">To Do</option>
+          <option value="Pending">To Do</option>
           <option value="in_progress">In Progress</option>
           <option value="completed">Completed</option>
         </select>
