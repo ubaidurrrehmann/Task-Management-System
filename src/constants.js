@@ -1,5 +1,5 @@
 export const STATUSES = {
-  TODO: 'todo',
+  TODO: 'Pending',
   IN_PROGRESS: 'in_progress',
   COMPLETED: 'completed',
 }

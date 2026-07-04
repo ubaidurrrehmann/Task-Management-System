@@ -21,10 +21,6 @@ function App() {
     setNewsOpen(true)
   }
 
-  // const openNewsModal = () => {
-  //   setNewsOpen(true)
-  // }
-
   const handleEditTask = (task) => {
     setEditingTask(task)
     setModalOpen(true)

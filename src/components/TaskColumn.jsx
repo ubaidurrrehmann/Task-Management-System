@@ -10,7 +10,8 @@ export default function TaskColumn({ status, label, color, tasks, onEdit, onDele
       </div>
 
       <div className="column-tasks">
-        {tasks.length === 0 ? (
+        {
+        tasks.length === 0 ? (
           <p className="column-empty">No tasks</p>
         ) : (
           tasks.map((task) => (
@@ -22,7 +23,8 @@ export default function TaskColumn({ status, label, color, tasks, onEdit, onDele
               onStatusChange={onStatusChange}
             />
           ))
-        )}
+        )
+        }
       </div>
     </div>
   )
