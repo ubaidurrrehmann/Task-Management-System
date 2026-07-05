@@ -1,6 +1,7 @@
 // src/services/taskService.js
 
-const API_BASE_URL = 'http://localhost:5000/api/tasks';
+// const API_BASE_URL = 'http://localhost:5000/api/tasks';
+const API_BASE_URL = 'https://task-management-backend-five-alpha.vercel.app/api/tasks';
 
 // 1. Get all tasks
 export const getTasks = async () => {
